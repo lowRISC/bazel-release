@@ -10,15 +10,15 @@ Load this repository in your `WORKSPACE`:
 ```
 http_archive(
     name = "lowrisc_bazel_release",
-    url = "<TODO>",
-    sha256 = "<TODO>",
-    strip_prefix = "<TODO>",
+    url = "https://github.com/lowRISC/bazel-release/archive/refs/tags/v0.0.1.tar.gz",
+    sha256 = "b4a6518347f4c95b218c4358e2ce946be0100ff731ccc4922cb1f8e1acc9e09d",
+    strip_prefix = "bazel-release-0.0.1",
 )
 
 
 load("@lowrisc_bazel_release//:repos.bzl", "lowrisc_bazel_release_repos")
 lowrisc_bazel_release_repos()
-load("//:deps.bzl", "lowrisc_bazel_release_deps")
+load("@lowrisc_bazel_release//:deps.bzl", "lowrisc_bazel_release_deps")
 lowrisc_bazel_release_deps()
 ```
 
