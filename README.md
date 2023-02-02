@@ -5,6 +5,8 @@ This repository contains bazel automation for performing releases to GitHub.
 
 ## Usage
 
+### Configuration
+
 Load this repository in your `WORKSPACE`:
 
 ```
@@ -22,7 +24,10 @@ load("@lowrisc_bazel_release//:deps.bzl", "lowrisc_bazel_release_deps")
 lowrisc_bazel_release_deps()
 ```
 
-Then, in a `BUILD` file, instantiate the `release` rule:
+### Defining the Release
+
+In a `BUILD` file, instantiate the `release` rule and provide the
+labels and descriptions of your release artifacts:
 
 ```
 load("@lowrisc_bazel_release//release:release.bzl", "release")
@@ -35,6 +40,10 @@ release(
 )
 ```
 
+### Releasing
+
+#### Manual Release
+
 When you want to perform a release, run the `release` target:
 
 ```
@@ -43,3 +52,10 @@ bazel run :release -- <your release tag name>
 
 Bazel will build your release artifacts, and then use the GitHub CLI to
 create a release on GitHub and upload your release artifacts.
+
+#### Automation with Github Actions
+
+To create a release via Github actions, execute the release rule
+as a step in your workflow configuration.  See the
+[`create_release.yml`](.github/workflows/create_release.yml) file in
+this repository as an example.
