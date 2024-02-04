@@ -24,6 +24,12 @@ load("@lowrisc_bazel_release//:deps.bzl", "lowrisc_bazel_release_deps")
 lowrisc_bazel_release_deps()
 ```
 
+Or your `MODULE.bazel`:
+
+```
+bazel_dep(name = "lowrisc_bazel_release", version = "0.1.0")
+```
+
 ### Defining the Release
 
 In a `BUILD` file, instantiate the `release` rule and provide the

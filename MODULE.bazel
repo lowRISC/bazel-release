@@ -1,0 +1,11 @@
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+
+module(
+    name = "lowrisc_bazel_release",
+    version = "0.1.0",
+)
+
+tools = use_extension("//:extensions.bzl", "tools")
+use_repo(tools, "com_github_gh")
